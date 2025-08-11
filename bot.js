@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-require('dotenv').config(); // Load environment variables
+
+// Environment variables are provided directly by Railway
 
 const client = new Client({
     intents: [
