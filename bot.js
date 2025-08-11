@@ -17,10 +17,23 @@ const COMMAND_CHANNEL_ID = process.env.COMMAND_CHANNEL_ID; // Your private chann
 const TARGET_CHANNEL_ID = process.env.TARGET_CHANNEL_ID; // Where bot posts
 const BOT_TOKEN = process.env.BOT_TOKEN; // Gets token from environment variable
 
+// Debug: Log what environment variables are actually loaded
+console.log('=== ENVIRONMENT VARIABLES DEBUG ===');
+console.log('BOT_TOKEN exists:', !!process.env.BOT_TOKEN);
+console.log('YOUR_USER_ID:', process.env.YOUR_USER_ID);
+console.log('COMMAND_CHANNEL_ID:', process.env.COMMAND_CHANNEL_ID);
+console.log('TARGET_CHANNEL_ID:', process.env.TARGET_CHANNEL_ID);
+console.log('All environment variables:', Object.keys(process.env).filter(key => key.includes('BOT') || key.includes('USER') || key.includes('CHANNEL')));
+console.log('=====================================');
+
 // Check that all required environment variables are set
 if (!BOT_TOKEN || !YOUR_USER_ID || !COMMAND_CHANNEL_ID || !TARGET_CHANNEL_ID) {
-    console.error('❌ Missing required environment variables! Check your .env file.');
+    console.error('❌ Missing required environment variables! Check your Railway Variables tab.');
     console.error('Required: BOT_TOKEN, YOUR_USER_ID, COMMAND_CHANNEL_ID, TARGET_CHANNEL_ID');
+    console.error('BOT_TOKEN present:', !!BOT_TOKEN);
+    console.error('YOUR_USER_ID present:', !!YOUR_USER_ID);
+    console.error('COMMAND_CHANNEL_ID present:', !!COMMAND_CHANNEL_ID);
+    console.error('TARGET_CHANNEL_ID present:', !!TARGET_CHANNEL_ID);
     process.exit(1);
 }
 
